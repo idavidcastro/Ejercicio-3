@@ -12,34 +12,34 @@ namespace Ejercicio_3
         static void Main(string[] args)
         {
 
-            int op;
-            string nombre;
-            int nCuenta;
+            int opcionDeGestion;
+            string nombreUsuario;
+            int numCuenta;
             double saldoAper = 0, saldoDisp = 0;
 
             Console.Write("Ingrese su nombre: ");
             try
             {
-                nombre = Console.ReadLine();
+                nombreUsuario = Console.ReadLine();
             }
             catch (FormatException e) {
-                nombre = "Usuario Desconocido\n";
+                nombreUsuario = "Usuario Desconocido\n";
             }
             Console.Write("Ingrese su número de cuenta: ");
             try
             {
-                nCuenta = int.Parse(Console.ReadLine());
+                numCuenta = int.Parse(Console.ReadLine());
             }
             catch (FormatException e) {
                 Console.Write("ERROR!! El número de cuenta es inválido. Por lo tanto, su valor será 12345.\n");
-                nCuenta = 0;
+                numCuenta = 0;
             }
-            while (nCuenta < 0) {
+            while (numCuenta < 0) {
                 Console.Write("Ingrese su número de cuenta correctamente (A partir de dígitos >=0): ");
-                nCuenta = int.Parse(Console.ReadLine());
+                numCuenta = int.Parse(Console.ReadLine());
             }
 
-            string seguir;
+            string opcionSeguir;
             do
             {
                 Console.Write("Ingrese el saldo de apertura: ");
@@ -61,9 +61,9 @@ namespace Ejercicio_3
                 Console.Write("1 - Consignar a mi cuenta\n");
                 Console.Write("2 - Retirar dinero de mi cuenta\n");
                 Console.Write("3 - Consultar Saldo\n");
-                op = int.Parse(Console.ReadLine());
+                opcionDeGestion = int.Parse(Console.ReadLine());
 
-                switch (op)
+                switch (opcionDeGestion)
                 {
                     case 1:
                         saldoDisp = saldoDisp + saldoAper;
@@ -74,8 +74,8 @@ namespace Ejercicio_3
                         Console.Write("\nEl dinero se ha retirado de su cuenta correctamente! ");
                         break;
                     case 3:
-                        Console.Write("\nSu nombre es: {0}", nombre);
-                        Console.Write("\nSu número de cuenta es: {0}", nCuenta);
+                        Console.Write("\nSu nombre es: {0}", nombreUsuario);
+                        Console.Write("\nSu número de cuenta es: {0}", numCuenta);
                         Console.Write("\nEl saldo disponible es: {0}", saldoDisp);
                         break;
                     default:
@@ -83,9 +83,9 @@ namespace Ejercicio_3
                 }
 
             Console.Write("\n¿Desea realizar otra gestión? S/N\n");
-            seguir= Console.ReadLine();
+            opcionSeguir = Console.ReadLine();
 
-            } while (seguir.ToUpper().Equals("S"));
+            } while (opcionSeguir.ToUpper().Equals("S"));
 
             Console.Write("\n¡¡GRACIAS POR USAR NUESTRO SERVICIO!!\n");
         }
